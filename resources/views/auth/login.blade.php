@@ -70,7 +70,7 @@
                                 @endif
 
 
-            <p>Don't have an account? <a href="{{route('register')}}" class="link-info">Register here</a></p>
+            <p>Don't have an account sirss? <a href="{{route('register')}}" class="link-info">Register here</a></p>
 
           </form>
 
