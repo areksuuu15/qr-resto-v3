@@ -126,6 +126,7 @@ height: 100vh;
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <div class="addMenu-section">
   <div class="form">
@@ -159,10 +160,16 @@ height: 100vh;
   </div>
   <br>
   <div class="form-group">
+    <div class="preview">
+    <img  src="" alt="" id="file-ip-1-preview">
     <label for="image">Upload Image</label>
     <br>
-    <input type="file" name="image" class="form-control-file" id="image">
+    <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);" name="image" class="form-control-file" id="image">
+
+    </div>
   </div>
+
+
   <button type="submit"  id="save-button" onclick="validateForm()" class="btn btn-primary">Submit</button>
 </form>
 
@@ -179,6 +186,19 @@ height: 100vh;
 
   </div>
 </div>
+
+<script>
+  function showPreview(event){
+    if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      var preview = document.getElementById("file-ip-1-preview");
+      preview.src = src;
+      preview.style.display ="block";
+      preview.style.width = "100px";
+      preview.style.height = "100px";
+    }
+  }
+</script>
 
 
 <script>

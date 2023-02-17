@@ -23,8 +23,13 @@ class CheckRole
         if ($user->Role('chef')) {
             return $next($request);
 
+        }return redirect('home')->with('error', 'You do not have the necessary permissions to access this page.');
+
+
+ if ($user && $user->Role('chef')) {
+            return redirect('home')->with('error', 'You do not have the necessary permissions to access this page.');
         }
-        return redirect('home')->with('error', 'You do not have the necessary permissions to access this page.');
+
 
     }
 }

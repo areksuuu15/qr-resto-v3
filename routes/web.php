@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\chefController;
+use App\Http\Controllers\RoleController;
 
 
 
@@ -17,16 +18,19 @@ use App\Http\Controllers\chefController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['auth' ])->group(function () {
+Route::middleware(['auth',  ])->group(function () {
     Route::get('/qr-codes', [QrCodeController::class, 'index']);
 
     Route::get('/home', [QrCodeController::class, 'index'])->name('home');
     Route::get('/crud', [QrCodeController::class, 'crud'])->name('crud');
     Route::get('/addMenu', [QrCodeController::class, 'addMenu'])->name('addMenu');
+    Route::get('/assign-role', [RoleController::class, 'index'])->name('assign-role');
+    Route::post('/assign-role', [RoleController::class, 'assignRole']);
+    Route::delete('users/{user_id}/roles/{role_id}', [RoleController::class, 'removeRole'])->name('roles.remove');
+    Route::get('/qr-codes-show', [QrCodeController::class, 'index'])->name('qr-codes-show');
 
-Route::get('/qr-codes-show', [QrCodeController::class, 'index'])->name('qr-codes-show');
+
 });
-
 
 Route::middleware(['auth', 'role:chef'])->group(function () {
 
@@ -34,12 +38,10 @@ Route::get('/chef', [chefController::class, 'index'])->name('chef');
 Route::post('/finishOrder', [chefController::class, 'finishOrder'])->name('finishOrder');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 Route::get('/home', [QrCodeController::class, 'index'])->name('home');
 
-});
 
 
 

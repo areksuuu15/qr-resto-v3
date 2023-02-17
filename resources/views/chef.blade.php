@@ -181,7 +181,12 @@ p{
           </thead>
           <tbody id="order-items">
           </tbody>
+<tfoot>
+    <td align="center" id="total-price"></td>
+  </tfoot>
         </table>
+
+
         <button class="btn btn-primary">Done</button>
       </form>
       </div>
@@ -196,8 +201,12 @@ p{
     // Clear the order items table
     document.getElementById("order-items").innerHTML = "";
     document.getElementById("order-id").value = id;
+
+    document.getElementById("total-price").value = id;
+
     // Get the order details
     var order = orders[id];
+    var total = 0;
     // Loop through the order items
     for (var i = 0; i < order.items.length; i++) {
       var item = order.items[i];
@@ -208,11 +217,19 @@ p{
           <td>${item.id}</td>
           <td>${item.name}</td>
           <td>${item.quantity}</td>
-          <td>${item.price}</td>
-          <td>${item.total}</td>
+          <td>$ ${item.price}</td>
+          <td>$ ${item.total}</td>
+
 
      `;
+  total += item.total;
     }
+  document.getElementById("order-items").innerHTML += `
+    <tr>
+      <td colspan="4" align="right">Total:</td>
+      <td>$ ${total}</td>
+    </tr>
+  `;
     // Show the order popup
     $("#order-popup").modal("show");
   }

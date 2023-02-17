@@ -22,6 +22,7 @@
             body {
                 font-family: 'Nunito', sans-serif;
                 color:white;
+                width: 100vw;
 
             }
 
@@ -29,7 +30,7 @@
  background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -47,52 +48,152 @@ color: #fff;
 .card{
   margin: 10px auto;
   width: 18rem;
+  min-width: 50vw;
 }
 
 img{
   width: 18rem;
   height: 18rem;
+  border-radius: 5%;
 }
+
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.menuBar{
+  background: white;
+}
+
+.menuBar a{
+  color: black;
+}
+
+.search-button{
+  padding: 5rem;
+  width: 20vw;
+  margin-left: 20px;
+}
+
+.wrapper{
+  overflow-x: auto;
+  display: flex;
+
+  border-radius:10px ;
+}
+
+.main-bg{
+
+  background-color: #b8d7d5 ;
+
+  border-radius:40px ;
+}
+
+
+.search input{
+  margin: 20px;
+  width: 90vw;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px){
+.card{
+  width: 10rem;
+  height: 8rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+img{
+  width: 10rem;
+  height: 8rem;
+}
+
+input{
+  width: 5rem;
+}
+
+.card-text{
+  margin: 2px;
+  padding: 0;
+
+}
+
+.search-button{
+  width: 20vw;
+  margin-left: 20px;
+}
+
+.wrapper{
+  overflow-x: auto;
+  display: flex;
+}
+
+
+
+.search input{
+  margin: 20px;
+  width: 80vw;
+}
+
+.menuBar{
+  background: white;
+  
+}
+
+.menuBar a{
+  color: black;
+}
+
+
+  
+}
+
 
         </style>
     </head>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg menuBar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-<input type="text" id="search-input" placeholder="Search...">
+    <a class="navbar-brand" href="#">Menu</a>
+ </div>
+</nav>
 
+<div class="search">
+
+<input type="text" id="search-input" placeholder="Search...">
+</div>
+
+<div class="main-bg">
+<div class="wrapper">
 <button class=" btn search-button" value="">All</button>
 <button class=" btn search-button" value="Breakfast">Breakfast</button>
 <button class=" btn search-button" value="Lunch">Lunch</button>
 <button class=" btn search-button" value="Dinner">Dinner</button>
 <button class=" btn search-button" value="Dessert">Dessert</button>
 
-   <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('login')}}">login</a>
-
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
  
+</div>
+ 
+
+
     <body class="antialiased">
-       <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0">
+       <div class="relative flex items-top justify-center min-h-screen sm:items-center py-4 sm:pt-0 ">
+
+
   <div class="container-fluid">
     <div class="row">
       @foreach ($listItems as $listItems)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 my-3 list-item">
+        <div class="col-6 col-sm-4 col-md-4 col-lg-4 my-3 list-item">
           <div class="col-sm-4 ">
             <div class="card " >
-          <img src="{{ asset('/img/' . $listItems->image) }}" alt="{{ $listItems->name }}" >
+          <img class="menuImg" src="{{ asset('/img/' . $listItems->image) }}" alt="{{ $listItems->name }}" >
               <div class="card-body">
                 <h5 class="card-title ">{{$listItems->name}}</h5>
                 <p class="card-text">{{$listItems->description}}</p>
@@ -152,10 +253,13 @@ $(document).ready(function() {
 
 
 
+var img = document.getElementsByClassName("menuImg");
 var buttons = document.getElementsByClassName("myButton");
 var selectedItems = [];
 for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener("click", function() {
+ 
+   buttons[i].addEventListener("click", 
+  function() {
     var input = this.parentNode.getElementsByClassName("quantity")[0];
 if (input.disabled) {
 this.classList.remove("active");
@@ -247,7 +351,7 @@ console.log(newSelectedItems);
 <!-- Button trigger modal -->
 <div class="fixed-bottom text-center">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
+  check out
 </button>
 </div>
 <!-- Modal -->
@@ -284,7 +388,7 @@ console.log(newSelectedItems);
 
 
 
-<!-- Checkout button -->
+<!-- Checkout button -
 <div>
   {{$variable}}
 </div>
@@ -297,7 +401,7 @@ console.log(newSelectedItems);
     <div class="alert alert-danger">
         Failed
     </div>
-@endif
+@endif-->
 
 <script>
 $(document).ready(function() {

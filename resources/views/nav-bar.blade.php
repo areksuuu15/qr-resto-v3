@@ -297,6 +297,27 @@
 }
 
 
+.role-section{
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: 160px;
+  width: calc(100% - 158px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.sidebar.open ~ .role-section{
+  left: 300px;
+  width: calc(100% - 300px);
+}
+.role-section .text{
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 20px;
+}
+
 
 
 
@@ -364,11 +385,11 @@
        <span class="tooltip">Qr-code</span>
      </li>
      <li>
-       <a href="#">
+       <a href="{{route('assign-role')}}">
          <i class='bx bx-folder' ></i>
-         <span class="links_name">File Manager</span>
+         <span class="links_name">Roles</span>
        </a>
-       <span class="tooltip">Files</span>
+       <span class="tooltip">Roles</span>
      </li>
      <li>
        <a href="#">
