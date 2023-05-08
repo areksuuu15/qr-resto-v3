@@ -1,6 +1,8 @@
 <style>
 /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/*NAVBAR STARTS*/
 *{
   margin: 0;
   padding: 0;
@@ -54,6 +56,8 @@
   cursor: pointer;
   transition: all 0.5s ease;
 }
+
+
 
 
 
@@ -275,27 +279,6 @@
   margin: 20px;
 }
 
-.crud-section{
-  position: relative;
-  min-height: 100vh;
-  top: 0;
-  left: 160px;
-  width: calc(100% - 158px);
-  transition: all 0.5s ease;
-  z-index: 2;
-}
-.sidebar.open ~ .crud-section{
-  left: 300px;
-  width: calc(100% - 300px);
-}
-.crud-section .text{
-  display: inline-block;
-  color: #11101d;
-  font-size: 25px;
-  font-weight: 500;
-  margin: 20px;
-}
-
 
 .role-section{
   position: relative;
@@ -317,27 +300,167 @@
   font-weight: 500;
   margin: 20px;
 }
-
-
-
-
-
-
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;
   }
+}
+/*NAVBAR ENDS*/
+
+
+/*home blade php css START*/
+
+/*home blade php css END*/
+
+
+
+
+
+/*MENU BLADE START*/
+
+
+.addMenu-section{
+  position: absolute;
+  top: 0;
+  left: 130px;
+  width: calc(100% - 160px);
+  transition: all 0.5s ease;
+display: flex; 
+align-items: center; 
+justify-content: center; 
+height: 100vh;
+
+  z-index: 2;
+}
+.sidebar.open ~ .addMenu-section{
+  left: 300px;
+  width: calc(100% - 300px);
+}
+.addMenu-section .text{
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 20px;
+}
+
+
+
+
+  .form {
+    margin: 0 auto;
+    width: 500px;
+    padding: 30px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+  }
+  .form-group {
+    margin-bottom: 25px;
+  }
+  label {
+    font-weight: 600;
+  }
+  input[type="text"],
+  textarea.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+  input[type="number"] {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+  select.form-control {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+  .form-control-file {
+    margin-top: 10px;
+  }
+  #save-button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+
+  .form {
+    width: 75%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+  }
+  
+  .form-control-file {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  #save-button {
+    width: 100%;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  #back-button {
+    width: 100%;
+    background-color: #ffd000;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+
+
+
+/*MENU BLADE ENDS*/
+
+
+
+
+@media (max-width: 768px){
+
+
+
+
+
+
 }
 
 </style>
 
 
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -352,7 +475,7 @@
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bx-restaurant  icon'></i>
-        <div class="logo_name">CodingLab</div>
+        <div class="logo_name">QR-Resto</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
@@ -365,7 +488,8 @@
       </li>
  <li>
        <a href="{{route('crud')}}">
-         <i class='bx bx-user' ></i>
+
+         <i class='bx bx-folder' ></i>
          <span class="links_name">CRUD</span>
        </a>
        <span class="tooltip">CRUD</span>
@@ -386,33 +510,20 @@
      </li>
      <li>
        <a href="{{route('assign-role')}}">
-         <i class='bx bx-folder' ></i>
+
+         <i class='bx bx-user' ></i>
          <span class="links_name">Roles</span>
        </a>
        <span class="tooltip">Roles</span>
      </li>
      <li>
-       <a href="#">
+       <a href="{{route('chef')}}">
          <i class='bx bx-cart-alt' ></i>
          <span class="links_name">Order</span>
        </a>
        <span class="tooltip">Order</span>
      </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
-       </a>
-       <span class="tooltip">Setting</span>
-     </li>
-    <li class="profile">
+   <li class="profile">
          <div class="profile-details">
            <div class="name_job">
              <div class="name">

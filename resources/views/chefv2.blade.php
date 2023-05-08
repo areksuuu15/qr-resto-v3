@@ -1,3 +1,4 @@
+
 @component('nav-bar')
 @endcomponent
 
@@ -82,7 +83,7 @@
             var order = orders[id];
             // Create a card for each order id
             document.write(`
-            <div class="row" >
+            <div class="row">
               <div class="flex">
               <div class="card order " id="order-card-${order.id}" onclick="showOrderPopup(${order.id})">
                 <div class="card-header ">Table Number: ${order.id}</div>
@@ -103,9 +104,10 @@
 </div>
 
 
+
 <script>
-  
-  
+  const orderCount = document.getElementsByClassName('card');
+  const orderCountElement = document.getElementById('order-count');
   orderCountElement.textContent = orderCount.length;
 
 
@@ -143,7 +145,8 @@ $(document).ready(function() {
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="orderPopupLabel">Order Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">

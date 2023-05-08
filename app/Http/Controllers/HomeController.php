@@ -8,6 +8,7 @@ use App\Models\TableNumber;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\order;
+use App\Models\finishOrder;
 class HomeController extends Controller
 {
     /**
@@ -27,14 +28,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $revenueFinish = FinishOrder::sum('total'); 
+        $FinishedOrderCount = FinishOrder::count(); 
         $tableCount = TableNumber::count();
         $listItemCount = ListItem::count();
         $RoleCount = Role::count();
         $UserCount = User::count();
-        $orderCount = order::count();
+        $NewOrderCount = order::count();
 
 
 
-        return view('home' , ['listItems'=> ListItem::where('is_complete', 0)->get()], compact('tableCount', 'listItemCount', 'RoleCount', 'UserCount', 'orderCount'));
+        return view('home' , ['listItems'=> ListItem::where('is_complete', 0)->get()], compact('tableCount',  'revenueFinish', 'listItemCount', 'RoleCount', 'UserCount', 'NewOrderCount', 'FinishedOrderCount'));
     }
 }

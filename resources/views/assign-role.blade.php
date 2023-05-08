@@ -1,13 +1,7 @@
- 
-   @include('nav-bar')
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <style>
+
+
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -41,15 +35,39 @@ button{
     
 }
 
+.name{
+  margin-top: 20;
+}
+
+
+label{
+  padding: 20px;
+}
+
+.btn-success{
+  padding: 20px;
+}
+
 
 </style>
+
+   @include('nav-bar')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="asset('css/assignRole.css')">
+
 
 
 
 <div class="role-section">
 
 
-<form action="/assign-role" method="post">
+  <div class="name">
+    <form action="/assign-role" method="post">
     @csrf
     <label for="user">User:</label>
     <select name="user_id" id="user">
@@ -65,8 +83,12 @@ button{
         @endforeach
     </select>
 
-    <button type="submit">Assign Role</button>
+    <button type="submit" class="btn btn-success">Assign Role</button>
 </form>
+
+
+  </div>
+
 <table  id="users-table"class="styled-table">
     <thead>
         <tr>

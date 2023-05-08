@@ -5,12 +5,25 @@
         margin-bottom: 20px;
         display: inline-block;
     }
+
+
+.form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 </style>
 @component('nav-bar')
 @endcomponent
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 
 
  
@@ -20,10 +33,11 @@
 
 
 <div class="container qr-section">
-    <div class="row justify-content-center">
+
+<h1>QR-CODES</h1>
+    <div class="row qr-box">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">QR Codes</div>
 
                 <div class="card-body">
  @foreach ($qrCodes as $qrCode)

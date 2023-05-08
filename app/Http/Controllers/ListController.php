@@ -8,6 +8,7 @@ use App\Models\TableNumber;
 use App\Models\order;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Support\Facades\File;
 class ListController extends Controller
@@ -123,14 +124,21 @@ if($request->hasFile('image')){
 
 public function updateOccupancy(Request $request, $variable)
 {
-  $tableNumber = TableNumber::find($variable);
+   try {
+     $tableNumberDesu = Crypt::decryptString($variable);
+    } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+      abort(404, 'Invalid encrypted value');
+    }
+    //var_dump($tableNumber);die;
+  $tableNumber = TableNumber::find($tableNumberDesu);
+
   if (!$tableNumber) {
     abort(404, 'Table number not found');
   }
   $selectedItems = json_decode($request->input('selectedItems'), true);
 foreach ($selectedItems as $selectedItem) {
     // Access the properties of each item
-    $id = $variable;
+    $id = $tableNumberDesu;
     $name = $selectedItem['name'];
     $price = $selectedItem['price'];
     $quantity = $selectedItem['quantity'];
@@ -148,7 +156,7 @@ foreach ($selectedItems as $selectedItem) {
 
 
     $rowsAffected = DB::table('table_numbers')
-    ->where('id', $variable)
+    ->where('id', $tableNumberDesu)
     ->update(['is_occupied' => 1]);
 
   if ($rowsAffected) {

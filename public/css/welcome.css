@@ -1,0 +1,416 @@
+::root{
+    --primary-color: #333538;
+    --secondary-color: #383b3d;
+    --acccent-color: #ed9237  ;
+
+
+}            
+
+
+
+            body {
+                font-family: 'Nunito', sans-serif;
+                color:white;
+                width: 100vw;
+
+            }
+
+           .myButton{
+ background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+            }
+            
+.myButton.active {
+background-color:  orange;
+color: #fff;
+}
+
+
+
+.card{
+  width: 100rem;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
+
+h4{
+  font-size: 20px;
+}
+
+p{
+}
+
+img{
+  width: 12rem;
+  height:12rem;
+
+  border-radius: 5px;
+  box-shadow: 7px 7px 7px rgb(41, 41, 41);
+}
+
+input{
+  width: 5rem;
+}
+
+.card-text{
+  margin: 2px;
+  padding: 0;
+
+}
+
+
+
+
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.menuBar{
+  background: white;
+}
+
+.menuBar a{
+  color: black;
+}
+
+.search-button{
+  padding: 5rem;
+  width: 20vw;
+  margin-left: 20px;
+  background-color: pink;
+
+}
+
+.wrapper{
+  overflow-x: auto;
+  display: flex;
+  background: var(--secondary-color);
+
+  border-radius:10px ;
+}
+
+
+
+
+
+
+.search input{
+  margin: 20px;
+  width: 90vw;
+  padding: 10px;
+  border-radius: 20px;
+  color: black;
+  border: none;
+  outline: none;
+
+}
+
+.search ,placeholder{
+
+  color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  top: 0;
+  z-index: 100;
+}
+
+.main-bg{
+
+}
+
+@media(max-width:1200px){
+.card-horizontal {
+       flex-basis: calc(33.33% - 16px); /* subtract margin from the width */
+
+}
+
+
+
+.card{
+  width: 70rem;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+h4{
+  font-size: 20px;
+}
+
+img{
+  width: 8rem;
+  height: 16rem;
+  border-radius: 5px;
+  box-shadow: 7px 7px 7px rgb(41, 41, 41);
+}
+
+input{
+  width: 5rem;
+}
+
+.card-text{
+  margin: 2px;
+  padding: 0;
+
+}
+
+.search-button{
+  width: 20vw;
+  margin-left: 20px;
+  background-color: pink;
+}
+
+.wrapper{
+  overflow-x: auto;
+  display: flex;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+
+.search input{
+  margin: 20px;
+  width: 80vw;
+}
+
+.menuBar{
+  background: white;
+  
+}
+
+.menuBar a{
+  color: black;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+   top: 0;
+  z-index: 100;
+}
+
+
+}
+
+
+
+
+@media(max-width:992px){
+
+.card{
+  width: 80px;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+h4{
+  font-size: 20px;
+}
+
+p{
+}
+
+img{
+  width: 8rem;
+  height: 10rem;
+}
+
+input{
+  width: 5rem;
+}
+
+.card-text{
+  margin: 2px;
+  padding: 0;
+
+}
+
+.search-button{
+  width: 20vw;
+  margin-left: 20px;
+  background-color: pink;
+}
+
+.wrapper{
+  overflow-x: auto;
+  display: flex;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+
+.search input{
+  margin: 20px;
+  width: 80vw;
+}
+
+.menuBar{
+  background: white;
+  
+}
+
+.menuBar a{
+  color: black;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+   top: 0;
+  z-index: 100;
+}
+
+
+
+
+}
+
+@media(min-width: 768px){
+.card{
+  width: 80rem;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+}
+
+
+@media(min-width: 600px){
+.card{
+  width: 20rem;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+}
+
+@media(max-width: 600px){
+.card{
+  width: 20rem;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 768px){
+.card{
+  width: 20rem;
+  height: 2rem;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
+h4{
+  font-size: 20px;
+}
+
+p{
+}
+
+img{
+  width: 8rem;
+  height: 10rem;
+}
+
+input{
+  width: 5rem;
+}
+
+.card-text{
+  margin: 2px;
+  padding: 0;
+
+}
+
+.search-button{
+  width: 20vw;
+  margin-left: 20px;
+  background-color: pink;
+}
+
+.wrapper{
+  overflow-x: auto;
+  display: flex;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+
+.search input{
+  margin: 20px;
+  width: 80vw;
+}
+
+.menuBar{
+  background: white;
+  
+}
+
+.menuBar a{
+  color: black;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+   top: 0;
+  z-index: 100;
+}
+
+  
+}
+
+
+
+

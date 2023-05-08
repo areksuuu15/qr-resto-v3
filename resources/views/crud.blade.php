@@ -1,51 +1,15 @@
 @component('nav-bar')
 @endcomponent
 
-<style>
-.styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
-}
-
-table{
-    min-width: 10vw;
-    width: 70vw;
-    padding: 5rem;
-    border-radius: 40px;
-    
-}
-th{
-    padding: 20px;
-}
-
-td{
-    text-align: center;
-    padding: 20px;
-}
-
-button{
-    border-radius: 40px;
-    padding: 10px;
-    margin: 2px;
-    
-}
-
-
-</style>
-
-
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="{{asset('css/crud.css')}}">
 <script src="https://code.jquery.com/jquery-3.6.3.slim.js" integrity="sha256-DKU1CmJ8kBuEwumaLuh9Tl/6ZB6jzGOBV/5YpNE2BWc=" crossorigin="anonymous"></script>
 
 <div class="crud-section">
 
+          <h1>CRUD MENU</h1>
     <br>
 
     <form action="{{route('addMenu')}}">
@@ -85,7 +49,7 @@ button{
             <form id="myForm" method="post" action="{{ route('markCom', $listItem->id) }}" accept-charset="UTF-8">
                 {{ csrf_field() }}
 
-            <button type="submit" class="delete" style=" background-color:rgb(194, 2, 2); color:white;">
+            <button type="submit" class="btn btn-danger delete" style=" background-color:rgb(194, 2, 2); color:white;">
                 <i class='bx bxs-message-alt-x'></i> Delete
                 </button>
 
@@ -128,9 +92,8 @@ button{
 $(document).on('click', '.delete', function(event) {
   event.preventDefault();
   let form = $(this).closest('form');
-
   Swal.fire({
-    title: 'Are you sure?',
+    title: 'Are you sure you want to delete ?',
     text: "You won't be able to revert this!",
     icon: 'warning',
     showCancelButton: true,

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Models\ListItem;
 
@@ -21,7 +22,8 @@ $tableNumbers = TableNumber::select('table_number')->get();
 $qrCodes = [];
 
  foreach ($tableNumbers as $tableNumber) {
-        $url = "http://127.0.0.1:8000/welcome/" . $tableNumber->table_number;
+        
+        $url = "http://127.0.0.1:8000/welcome/" .  Crypt::encryptString($tableNumber->table_number); 
         $qrCode = QrCode::size(100)->generate($url);
         $fileName = "qr-code-" . $tableNumber->table_number . ".png";
         Storage::put("qr-codes/$fileName", $qrCode);

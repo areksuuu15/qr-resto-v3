@@ -1,0 +1,57 @@
+
+/*CRUD BLADE START*/
+.crud-section{
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: 160px;
+  width: calc(100% - 158px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.sidebar.open ~ .crud-section{
+  left: 300px;
+  width: calc(100% - 300px);
+}
+.crud-section .text{
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 20px;
+}
+
+
+
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+}
+
+table{
+    min-width: 10vw;
+    width: 70vw;
+    padding: 5rem;
+    border-radius: 40px;
+    
+}
+th{
+    padding: 20px;
+}
+
+td{
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+/*CRUD BLADE ENDS*/
+
