@@ -3,6 +3,11 @@
 ## Landing Page
 ![image](https://user-images.githubusercontent.com/105263582/236875282-da4c1eec-d31a-4100-85e0-60f4d3fd1584.png)
 
+### Testimonials
+
+![image](https://user-images.githubusercontent.com/105263582/236877637-3b8bb470-9013-4595-b173-305c8642df8b.png)
+
+
 The QR-Resto web Application is a website based of popular framework "Laravel".
 
 It serves as a restaurant based application mainly for the managerial side on which we can 
