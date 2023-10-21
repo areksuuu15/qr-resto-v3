@@ -73,7 +73,17 @@ public function update(Request $request, $id)
     return redirect()->route('listitems.index');
 }
 
-    public function saveitem(Request $request){
+ 
+ 
+     public function saveitem(Request $request){
+
+
+      try{
+        DB::beginTransaction();
+
+        if(preg_match('/\d/', $request->name)){
+          throw new \Exception('name contains numbers, rollingbackk..');
+        }
         $newListItem = new ListItem;
         $newListItem->name = $request->name;
         $newListItem->is_complete = 0;
@@ -89,9 +99,16 @@ if($request->hasFile('image')){
         $newListItem->category = $request->category;
         $newListItem->save();
 
-    return back()->with('success', 'Table occupancy updated successfully!');
+        DB::commit();
+    return response()->json(['success'=> 'true']);
+      } catch (\Exception $e){
+        DB::rollback();
+    return response()->json(['error'=> 'false']);
+      }
 
     }
+
+
 
 
 public function editMenu($id){
